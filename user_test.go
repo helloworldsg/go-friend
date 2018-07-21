@@ -1,4 +1,4 @@
-package go_friend
+package friend
 
 import "fmt"
 
