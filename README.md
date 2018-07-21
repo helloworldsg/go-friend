@@ -1,4 +1,4 @@
-# :two_men_holding_hands: go-friend [![GoDoc][doc-img]][doc] [![Build Status][ci-img]][ci] [![Coverage Status][cov-img]][cov]
+# :two_men_holding_hands: go-friend [![GoDoc][doc-img]][doc] [![Build Status][ci-img]][ci] [![Coverage Status][cov-img]][cov] [![Go Report Card][rpt-img]][rpt]
 
 ### How to run
 1. Build: `make build`
@@ -65,3 +65,5 @@
 [ci]: https://travis-ci.org/hmoniaga/go-friend
 [cov-img]: https://codecov.io/gh/hmoniaga/go-friend/branch/master/graph/badge.svg
 [cov]: https://codecov.io/gh/hmoniaga/go-friend
+[rpt-img]: https://goreportcard.com/badge/hmoniaga/go-friend
+[rpt]: https://goreportcard.com/report/hmoniaga/go-friend
