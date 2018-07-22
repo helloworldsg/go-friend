@@ -16,7 +16,7 @@ func ExampleService_AddFriend() {
 	// [harry@nite.com] <nil>
 }
 
-func ExampleService_FriendList() {
+func ExampleService_ListFriends() {
 	s := user.NewService(user.NewInMemoryRepository())
 	s.AddFriend("harry@nite.com", "jeremiah@gmail.com")
 	fmt.Println(s.ListFriends("harry@nite.com"))
@@ -27,7 +27,7 @@ func ExampleService_FriendList() {
 	// [] user not found
 }
 
-func ExampleService_MutualFriends() {
+func ExampleService_ListMutualFriends() {
 	s := user.NewService(user.NewInMemoryRepository())
 	s.AddFriend("harry@nite.com", "mutual@gmail.com")
 	s.AddFriend("jeremiah@gmail.com", "mutual@gmail.com")

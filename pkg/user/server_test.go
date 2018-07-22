@@ -93,6 +93,7 @@ func TestHTTPHandler_Functional(t *testing.T) {
 		{"handles invalid input: block updates", http.MethodPost, "/block", `{"requester":"john@example.com","target":""}`, `{"success":false,"error":"empty target supplied"}`, http.StatusBadRequest},
 		{"handles invalid input: notify subscribers", http.MethodPost, "/notify", `{"sender":" asdf","text":"Hello World! kate@example.com"}`, `{"success":false,"error":"invalid email address: "}`, http.StatusBadRequest},
 		{"handles invalid input: notify subscribers", http.MethodPost, "/notify", `{"sender":"john@example.com","text":""}`, `{"success":false,"error":"empty text supplied"}`, http.StatusBadRequest},
+		{"handles unknown user: notify subscribers", http.MethodPost, "/notify", `{"sender":"xxx@example.com","text":"asdf"}`, `{"success":false,"error":"user not found"}`, http.StatusBadRequest},
 	}
 
 	handler := user.NewHTTPHandler()

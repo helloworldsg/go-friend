@@ -1,4 +1,3 @@
-// Package user features user and friends connection management
 package user
 
 import (

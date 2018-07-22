@@ -1,3 +1,4 @@
+// Package user features user and friends connection management
 package user
 
 // User represents a registered user based on unique identifier: email
