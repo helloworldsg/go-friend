@@ -1,10 +1,11 @@
-package friend
+package user
 
 import (
 	"errors"
 	"sync"
 )
 
+// InMemoryRepo represents in memory user objects repository
 type InMemoryRepo struct {
 	*sync.RWMutex
 	items map[string]User

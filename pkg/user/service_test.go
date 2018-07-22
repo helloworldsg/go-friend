@@ -1,12 +1,12 @@
-package friend_test
+package user_test
 
 import (
 	"fmt"
-	"github.com/hmoniaga/go-friend"
+	"github.com/hmoniaga/go-friend/pkg/user"
 )
 
 func ExampleService_AddFriend() {
-	s := friend.NewService(friend.NewInMemoryRepository())
+	s := user.NewService(user.NewInMemoryRepository())
 	s.AddFriend("harry@nite.com", "jeremiah@gmail.com")
 	fmt.Println(s.ListFriends("harry@nite.com"))
 	fmt.Println(s.ListFriends("jeremiah@gmail.com"))
@@ -17,7 +17,7 @@ func ExampleService_AddFriend() {
 }
 
 func ExampleService_FriendList() {
-	s := friend.NewService(friend.NewInMemoryRepository())
+	s := user.NewService(user.NewInMemoryRepository())
 	s.AddFriend("harry@nite.com", "jeremiah@gmail.com")
 	fmt.Println(s.ListFriends("harry@nite.com"))
 	fmt.Println(s.ListFriends("unknown.guy@gmail.com"))
@@ -28,7 +28,7 @@ func ExampleService_FriendList() {
 }
 
 func ExampleService_MutualFriends() {
-	s := friend.NewService(friend.NewInMemoryRepository())
+	s := user.NewService(user.NewInMemoryRepository())
 	s.AddFriend("harry@nite.com", "mutual@gmail.com")
 	s.AddFriend("jeremiah@gmail.com", "mutual@gmail.com")
 	fmt.Println(s.ListMutualFriends("harry@nite.com", "jeremiah@gmail.com"))
@@ -38,7 +38,7 @@ func ExampleService_MutualFriends() {
 }
 
 func ExampleService_AddBlockedUser() {
-	s := friend.NewService(friend.NewInMemoryRepository())
+	s := user.NewService(user.NewInMemoryRepository())
 	s.AddBlockedUser("harry@nite.com", "mutual@gmail.com")
 	fmt.Println(s.AddFriend("harry@nite.com", "mutual@gmail.com"))
 
@@ -47,7 +47,7 @@ func ExampleService_AddBlockedUser() {
 }
 
 func ExampleService_Notify() {
-	s := friend.NewService(friend.NewInMemoryRepository())
+	s := user.NewService(user.NewInMemoryRepository())
 	s.AddFriend("harry@nite.com", "mutual@gmail.com")
 	fmt.Println(s.Notify("harry@nite.com", "hello katie@example.com"))
 

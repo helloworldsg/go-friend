@@ -1,4 +1,4 @@
-package friend
+package user
 
 // User represents a registered user based on unique identifier: email
 type User struct {

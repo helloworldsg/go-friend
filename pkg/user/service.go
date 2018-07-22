@@ -1,5 +1,5 @@
-// package friend features friends management system that is extendable
-package friend
+// Package user features user and friends connection management
+package user
 
 import (
 	"errors"
@@ -59,11 +59,17 @@ func (s *Service) ListFriends(email string) ([]string, error) {
 	return emails, err
 }
 
-// ListFriends list mutual friends of a user
+// ListMutualFriends list mutual friends of a user
 func (s *Service) ListMutualFriends(email, email2 string) ([]string, error) {
-	p1, err := s.userRepo.LoadOrStore(email)
-	p2, err := s.userRepo.LoadOrStore(email2)
 	var mutual []string
+	p1, err := s.userRepo.LoadOrStore(email)
+	if err != nil {
+		return mutual, err
+	}
+	p2, err := s.userRepo.LoadOrStore(email2)
+	if err != nil {
+		return mutual, err
+	}
 	for email := range p1.Friends {
 		_, ok := p2.Friends[email]
 		if ok {
