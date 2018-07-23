@@ -9,6 +9,30 @@
 1. Use go get: `go get github.com/hmoniaga/go-friend`
 2. Run: `go-friend`
 
+### Sample commands for testing
+
+```bash
+# create friends
+curl -s http://localhost:8080/friends/add -d '{ "friends": ["andy@example.com", "john@example.com"] }'
+curl -s http://localhost:8080/friends/add -d '{ "friends": ["andy@example.com", "common@example.com"] }'
+curl -s http://localhost:8080/friends/add -d '{ "friends": ["john@example.com", "common@example.com"] }'
+
+# list all friends
+curl -s http://localhost:8080/friends/list -d '{ "email": "andy@example.com" }'
+
+# list mutual friends
+curl -s http://localhost:8080/friends/mutual -d '{ "friends": ["andy@example.com", "john@example.com"] }'
+
+# subscribe updates
+curl -s http://localhost:8080/follow -d '{"requester":"andy@example.com","target":"john@example.com"}'
+
+# block updates
+curl -s http://localhost:8080/block -d '{"requester":"andy@example.com","target":"john@example.com"}'
+
+# notify subscribers
+curl -s http://localhost:8080/notify -d '{"sender":"andy@example.com","text":"Hello World! kate@example.com"}'
+```
+
 ## Assumptions
 ### General
 1. System assume it expects all inputs with case sensitive
